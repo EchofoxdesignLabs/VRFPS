@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 33400b619c6b7e04ea3b59ef89f8bd8b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Particle Effects/Particle_Explosion.prefab
+  uploadId: 748431

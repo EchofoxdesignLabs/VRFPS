@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1b793dfe632305c4bbb52152019839b7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/Bird.prefab
+  uploadId: 748431

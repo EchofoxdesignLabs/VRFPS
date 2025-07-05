@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 82664a9a79aa49340bbf8241991d2c3c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/World/Lever.cs
+  uploadId: 748431

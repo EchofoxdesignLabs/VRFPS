@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a196ca5e38ab26347ae1597634764e9c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/AR-15/M16/M16_Charge-Handle-Movement.anim
+  uploadId: 748431

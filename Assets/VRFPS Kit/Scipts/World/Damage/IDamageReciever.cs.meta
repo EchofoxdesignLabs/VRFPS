@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: fda97c8488ce8974aba2551210b44bd7
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/World/Damage/IDamageReciever.cs
+  uploadId: 748431

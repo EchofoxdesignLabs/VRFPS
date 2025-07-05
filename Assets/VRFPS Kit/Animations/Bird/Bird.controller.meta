@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eafa1efb5a3005d42beae891354123a6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/Bird/Bird.controller
+  uploadId: 748431

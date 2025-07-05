@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dbeefb83f89fb6f42b2330fb5b47b6f7
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Samples/Shooting Range/Shooting Range.unity
+  uploadId: 748431

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6e59c59b81ab47f9b6ec5781fa725d2c
+timeCreated: 1484171296
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+  uploadId: 748431

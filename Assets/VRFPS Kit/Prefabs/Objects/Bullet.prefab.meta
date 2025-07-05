@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cc8f6105fec64464a943513d7cd91504
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/Bullet.prefab
+  uploadId: 748431

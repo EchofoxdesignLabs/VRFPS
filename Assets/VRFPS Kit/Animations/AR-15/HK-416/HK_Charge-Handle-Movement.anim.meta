@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 746c5bcce63d22d46ae96f9576da7c0c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/AR-15/HK-416/HK_Charge-Handle-Movement.anim
+  uploadId: 748431

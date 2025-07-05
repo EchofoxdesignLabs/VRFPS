@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6f18c85613974be48879ff28da5ae934
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Objects/Holographic Sight Body Tan.mat
+  uploadId: 748431

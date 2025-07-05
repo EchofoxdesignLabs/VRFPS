@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cf6fd73058aa39241b7cce2bdf5bf91b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Particle Effects/Particle_Shoot_Muzzle.prefab
+  uploadId: 748431

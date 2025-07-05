@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 44cfce581ab4b1c408458e92a32c2422
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/XR Interaction Manager.prefab
+  uploadId: 748431

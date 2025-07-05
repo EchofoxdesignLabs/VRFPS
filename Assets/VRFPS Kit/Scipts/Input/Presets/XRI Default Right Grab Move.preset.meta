@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fdc4f514b7b1e9c4eb39713ad9dd4eba
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Input/Presets/XRI Default Right Grab Move.preset
+  uploadId: 748431

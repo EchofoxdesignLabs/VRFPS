@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2288f98fe9c57514a89e1318b6981d59
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Particle Effects/Bullet Impacts/Particle_Hit_Metal.prefab
+  uploadId: 748431

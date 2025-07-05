@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3659661128d26ec45852edd45ff629e3
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Haptic Patterns/README.txt
+  uploadId: 748431

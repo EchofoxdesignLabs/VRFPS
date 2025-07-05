@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 106f3ff43a17d4967a2b64c7a92e49ec
+timeCreated: 1520576276
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/QuickOutline/Resources/Materials/OutlineMask.mat
+  uploadId: 748431

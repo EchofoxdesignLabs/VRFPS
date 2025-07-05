@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3789b78f32982bb46b0568ed7ad78bca
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Settings/Low_PipelineAsset_ForwardRenderer.asset
+  uploadId: 748431

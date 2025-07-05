@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 38b2feb8471f905458f9ed0060acf1de
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Samples/Light Profile.lighting
+  uploadId: 748431

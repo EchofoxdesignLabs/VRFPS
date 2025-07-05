@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0caad3af14f9a414dbdf25ed41e5aa47
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Input/Presets/XRI Default Continuous Turn.preset
+  uploadId: 748431

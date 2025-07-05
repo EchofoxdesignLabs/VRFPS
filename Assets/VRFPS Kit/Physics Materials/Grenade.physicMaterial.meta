@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 20907dee1b13d194f9651a6fb5607b6b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 13400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Physics Materials/Grenade.physicMaterial
+  uploadId: 748431

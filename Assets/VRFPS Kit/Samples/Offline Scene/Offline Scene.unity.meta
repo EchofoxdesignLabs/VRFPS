@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3f18e5ef4fe5f3c4ba62b8bad0c43854
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Samples/Offline Scene/Offline Scene.unity
+  uploadId: 748431

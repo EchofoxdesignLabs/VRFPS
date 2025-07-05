@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2c3e7ff9ab352b74da862a5a8779b276
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Input/Presets/XRI Default XR UI Input Module.preset
+  uploadId: 748431

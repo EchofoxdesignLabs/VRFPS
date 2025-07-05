@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a71867330c5c9ff44868f74dda1261aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Solid Colors/Invisible.mat
+  uploadId: 748431

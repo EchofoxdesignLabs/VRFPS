@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f58cf65ea995c4b45be95713bdea8134
+timeCreated: 1522540975
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/QuickOutline/Samples/Materials/Plane.mat
+  uploadId: 748431

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3433261a3acb9f34487a455678f1aa0d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/Bottle.prefab
+  uploadId: 748431

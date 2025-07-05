@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d8641167cfe86214baf06b1d778e1f1e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Fonts/CaviarDreams SDF.asset
+  uploadId: 748431

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c8089a903cd2cda4ab27e1903402f3c8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Hand Poses/Weapon/AR Support Hand.asset
+  uploadId: 748431

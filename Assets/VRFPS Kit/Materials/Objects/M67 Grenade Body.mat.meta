@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bae32c8f936f6b94c89c1e15dd6a359f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Objects/M67 Grenade Body.mat
+  uploadId: 748431

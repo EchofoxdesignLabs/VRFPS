@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9d5b80e881624e8498b85f62be8a7622
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Weapons/Firearm/Sound/FirearmPhysicsMagazineSound.cs
+  uploadId: 748431

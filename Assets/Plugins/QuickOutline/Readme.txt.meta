@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5933bfd39d7a5b843a0ed821f85bca19
+timeCreated: 1522619008
+licenseType: Store
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/QuickOutline/Readme.txt
+  uploadId: 748431

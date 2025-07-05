@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2e498d1c8094910479dc3e1b768306a4
+timeCreated: 1484171803
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
+    SDF - Fallback.asset
+  uploadId: 748431

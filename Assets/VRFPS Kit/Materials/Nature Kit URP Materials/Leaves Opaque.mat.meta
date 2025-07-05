@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 044e16e5ba353b0459e2b55ff26d6061
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Nature Kit URP Materials/Leaves Opaque.mat
+  uploadId: 748431

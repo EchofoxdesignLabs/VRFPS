@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3338dde1ae80a3b43826deca5c238356
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/Oculus Hands/Animations/Right Hand Animator.controller
+  uploadId: 748431

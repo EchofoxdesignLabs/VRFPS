@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 97c3cc4e06899bc4b8e523a1c5020ea1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/Flip Target.prefab
+  uploadId: 748431

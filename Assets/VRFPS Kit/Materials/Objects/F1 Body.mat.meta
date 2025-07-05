@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3bb4072fd6d8c474eb93b3e640a52a0e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Objects/F1 Body.mat
+  uploadId: 748431

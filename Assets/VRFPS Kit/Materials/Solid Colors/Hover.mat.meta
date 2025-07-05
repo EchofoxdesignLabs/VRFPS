@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de82a90c6284c6841af4b310955f92db
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Solid Colors/Hover.mat
+  uploadId: 748431

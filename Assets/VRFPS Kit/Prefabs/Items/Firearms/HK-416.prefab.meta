@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e1f6c4219600ceb40b7bccc5d8b89770
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Items/Firearms/HK-416.prefab
+  uploadId: 748431

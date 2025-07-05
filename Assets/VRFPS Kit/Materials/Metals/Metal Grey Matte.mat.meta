@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 55f04a9c3e1846a4881650a8b1322c82
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Metals/Metal Grey Matte.mat
+  uploadId: 748431

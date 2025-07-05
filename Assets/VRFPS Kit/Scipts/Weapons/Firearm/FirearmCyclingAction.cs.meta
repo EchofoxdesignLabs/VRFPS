@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e37f989265efd494e8c8d7492c864759
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Weapons/Firearm/FirearmCyclingAction.cs
+  uploadId: 748431

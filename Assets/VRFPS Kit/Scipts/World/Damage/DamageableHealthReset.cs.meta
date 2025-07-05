@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5ac22efb3a280bc48a8237eebf37f8c3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/World/Damage/DamageableHealthReset.cs
+  uploadId: 748431

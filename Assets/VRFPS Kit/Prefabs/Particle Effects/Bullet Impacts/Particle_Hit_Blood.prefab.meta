@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3688dcc4c3e19784e98a8402cd47c0a2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Particle Effects/Bullet Impacts/Particle_Hit_Blood.prefab
+  uploadId: 748431

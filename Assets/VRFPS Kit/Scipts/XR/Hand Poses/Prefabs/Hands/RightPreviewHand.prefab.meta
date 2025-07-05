@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 634d0445963f64147b9a8480af0da37f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/XR/Hand Poses/Prefabs/Hands/RightPreviewHand.prefab
+  uploadId: 748431

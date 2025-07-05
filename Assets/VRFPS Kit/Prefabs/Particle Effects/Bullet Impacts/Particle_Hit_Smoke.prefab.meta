@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ae4af795013cff0478fd56ab87e3edee
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Particle Effects/Bullet Impacts/Particle_Hit_Smoke.prefab
+  uploadId: 748431

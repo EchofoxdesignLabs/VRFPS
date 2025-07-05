@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4ef00b5d06f27574e8ebef396266bad5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Weapons/Firearm/Sound/FirearmSuppressorSound.cs
+  uploadId: 748431

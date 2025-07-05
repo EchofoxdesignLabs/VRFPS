@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8c46dc890167d9543b7c206873e0dd5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 13400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Physics Materials/World.physicMaterial
+  uploadId: 748431

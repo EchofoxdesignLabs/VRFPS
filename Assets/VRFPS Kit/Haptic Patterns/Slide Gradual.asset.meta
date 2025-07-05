@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1fb17b4bb60d8e644b6f21dbb439a030
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Haptic Patterns/Slide Gradual.asset
+  uploadId: 748431

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 39624897a81c66d408d2046eefd50d9a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Objects/Moving Popup Target Variant.prefab
+  uploadId: 748431

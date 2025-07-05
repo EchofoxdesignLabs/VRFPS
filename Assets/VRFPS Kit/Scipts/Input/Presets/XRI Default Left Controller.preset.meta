@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ffd8268f7307a0c48a067dad4a8fe060
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Input/Presets/XRI Default Left Controller.preset
+  uploadId: 748431

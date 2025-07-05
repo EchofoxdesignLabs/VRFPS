@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b58177a13e5e3bb41a041803947aa337
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Prefabs/Cartridge Renderers/5.56x45 Cartridge Renderer.prefab
+  uploadId: 748431

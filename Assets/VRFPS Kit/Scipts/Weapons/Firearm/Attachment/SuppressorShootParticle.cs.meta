@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: aebc4fb1027e90d469e8dcd3efedeac0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Weapons/Firearm/Attachment/SuppressorShootParticle.cs
+  uploadId: 748431

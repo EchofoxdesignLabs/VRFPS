@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1fd3a7c43c8190f4d8c167ebde694364
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/Oculus Hands/Prefabs/Right Hand Model.prefab
+  uploadId: 748431

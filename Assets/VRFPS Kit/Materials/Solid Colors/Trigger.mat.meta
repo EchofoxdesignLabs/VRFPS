@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d9bfff4a1d8733541950166f94d76de3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Solid Colors/Trigger.mat
+  uploadId: 748431

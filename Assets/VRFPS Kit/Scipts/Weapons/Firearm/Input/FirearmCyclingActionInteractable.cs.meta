@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 02216dc19e03eb94aa46a9fe63372b4f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/Weapons/Firearm/Input/FirearmCyclingActionInteractable.cs
+  uploadId: 748431

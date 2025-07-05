@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 71931ab83710fb54e8d856a4615d0092
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/XR/Settings/OpenXRPackageSettings.asset
+  uploadId: 748431

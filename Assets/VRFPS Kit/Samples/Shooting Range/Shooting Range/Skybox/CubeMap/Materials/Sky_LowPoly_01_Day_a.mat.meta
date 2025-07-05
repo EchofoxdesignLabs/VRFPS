@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 133347283e115d147a5fcce7f47a538f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Samples/Shooting Range/Shooting Range/Skybox/CubeMap/Materials/Sky_LowPoly_01_Day_a.mat
+  uploadId: 748431

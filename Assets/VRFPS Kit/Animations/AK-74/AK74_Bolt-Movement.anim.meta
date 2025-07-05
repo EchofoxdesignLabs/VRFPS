@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f37904a8506558a4ba8c898c45848bf0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/AK-74/AK74_Bolt-Movement.anim
+  uploadId: 748431

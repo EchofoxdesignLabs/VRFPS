@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6368e6d236fa9ac4e8e00c7d54bfdc93
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/XR/Hand Poses/VRFPSKit.HandPoses.asmdef
+  uploadId: 748431

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 49254ad806ceced43839db7254294ea9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Materials/Objects/RDG-5 Body.mat
+  uploadId: 748431

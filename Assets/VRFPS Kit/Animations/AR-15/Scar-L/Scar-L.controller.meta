@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 127d6295a2b40fe41b9922d44a5a38ca
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/AR-15/Scar-L/Scar-L.controller
+  uploadId: 748431

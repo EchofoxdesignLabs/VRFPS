@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7cd2ae1e17e244345af8dd682b5d2c50
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Scipts/World/Damage/DamageableInvisibleOnDeath.cs
+  uploadId: 748431

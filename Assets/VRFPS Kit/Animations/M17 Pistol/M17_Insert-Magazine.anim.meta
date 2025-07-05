@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5f0ccdcb19300de449a2c66a41e8c109
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Animations/M17 Pistol/M17_Insert-Magazine.anim
+  uploadId: 748431

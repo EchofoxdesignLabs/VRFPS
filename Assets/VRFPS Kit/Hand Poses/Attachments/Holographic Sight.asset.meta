@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e0c2e468d631833418a6e3f14e1e35e6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/VRFPS Kit/Hand Poses/Attachments/Holographic Sight.asset
+  uploadId: 748431

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c41005c129ba4d66911b75229fd70b45
+timeCreated: 1480316912
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270649
+  packageName: VR FPS Kit - Framework & Template
+  packageVersion: 10.1.0
+  assetPath: Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+  uploadId: 748431
