@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875fbfa2d1734285b353878b31467c98, type: 3}
+  m_Name: EnemyCapabilityConfig
+  m_EditorClassIdentifier: 
+  goals:
+  - goal:
+      <Name>k__BackingField: IdleGoal
+      <Id>k__BackingField: 
+    baseCost: 1
+    conditions: []
+  - goal:
+      <Name>k__BackingField: 
+      <Id>k__BackingField: 
+    baseCost: 1
+    conditions: []
+  actions:
+  - action:
+      <Name>k__BackingField: IdleAction
+      <Id>k__BackingField: Idle-902fc63b-d5c6-452b-8b0f-2cc5d03dfe26
+    target:
+      <Name>k__BackingField: IdleTarget
+      <Id>k__BackingField: IdleTarget-60d23b18-0e91-45bc-ab92-f190b86a43f0
+    properties:
+      rid: 6397483257983140156
+    baseCost: 5
+    stoppingDistance: 10
+    validateTarget: 1
+    requiresTarget: 1
+    validateConditions: 1
+    moveMode: 0
+    conditions: []
+    effects: []
+  worldSensors: []
+  targetSensors:
+  - sensor:
+      <Name>k__BackingField: 
+      <Id>k__BackingField: 
+    targetKey:
+      <Name>k__BackingField: IdleTarget
+      <Id>k__BackingField: IdleTarget-60d23b18-0e91-45bc-ab92-f190b86a43f0
+  multiSensors: []
+  generatorScriptable: {fileID: 11400000, guid: 29679c5ade0c27c418c1a3871274ad2f, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6397483257983140156
+      type: {class: EmptyActionProperties, ns: CrashKonijn.Agent.Runtime, asm: CrashKonijn.Agent.Runtime}
+      data: 

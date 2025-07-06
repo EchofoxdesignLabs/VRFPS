@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0857b2a53377458ebec6c4b1179e3c5a, type: 3}
+  m_Name: New Generator Scriptable
+  m_EditorClassIdentifier: 
+  nameSpace: VRDefender.Goap.GenTest
+  scripts:
+    goals:
+    - <Name>k__BackingField: IdleGoal
+      fullName: VRDefender.Goap.GenTest.IdleGoal, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/Scripts/GOAP/Goals/IdleGoal.cs
+      <Id>k__BackingField: Idle-5866c992-d922-4d38-9967-f92abbf968a4
+    actions:
+    - <Name>k__BackingField: IdleAction
+      fullName: VRDefender.Goap.GenTest.IdleAction, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/Scripts/GOAP/Actions/IdleAction.cs
+      <Id>k__BackingField: Idle-902fc63b-d5c6-452b-8b0f-2cc5d03dfe26
+    worldSensors: []
+    worldKeys:
+    - <Name>k__BackingField: IsIdle
+      fullName: VRDefender.Goap.GenTest.IsIdle, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/Scripts/GOAP/WorldKeys/IsIdle.cs
+      <Id>k__BackingField: IsIdle-c2812f88-3c4b-447d-9681-b788f090f577
+    targetSensors: []
+    targetKeys:
+    - <Name>k__BackingField: IdleTarget
+      fullName: VRDefender.Goap.GenTest.IdleTarget, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/Scripts/GOAP/TargetKeys/IdleTarget.cs
+      <Id>k__BackingField: IdleTarget-60d23b18-0e91-45bc-ab92-f190b86a43f0
+    multiSensors: []
