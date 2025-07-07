@@ -46,10 +46,19 @@ namespace VRFPSKit.HandPoses
 
         private void SetHandActive(PreviewHand hand, bool setActive)
         {
+                        // These calls use the UnityEditor namespace and must be excluded from builds
+#if UNITY_EDITOR
+            // Record the state of the object for undo functionality in the editor
             Undo.RecordObject(hand.gameObject, "Toggle Hand");
+#endif
+
             hand.gameObject.SetActive(setActive);
-            if(setActive)
-                Selection.activeGameObject=hand.gameObject;
+
+            // This selects the active hand in the editor's hierarchy, which is also an editor-only feature
+#if UNITY_EDITOR
+            if (setActive)
+                Selection.activeGameObject = hand.gameObject;
+#endif
         }
 
         private PreviewHand CreateHand(GameObject prefab)
