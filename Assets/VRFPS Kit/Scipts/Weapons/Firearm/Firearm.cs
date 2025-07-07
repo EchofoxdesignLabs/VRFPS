@@ -47,6 +47,7 @@ namespace VRFPSKit
 
         public void TryShoot()
         {
+            
             //Can't shoot unless action is in battery
             if (!inBattery) return;
             
@@ -61,7 +62,7 @@ namespace VRFPSKit
             
             //Fire if all checks pass
             ShootEvent?.Invoke(unspentCartridge);
-            
+            Debug.Log("inside TrySHoot");
             //If haptic patterns is installed, play shoot haptic
             #if HAPTIC_PATTERNS 
             if (shootHaptic != null)
