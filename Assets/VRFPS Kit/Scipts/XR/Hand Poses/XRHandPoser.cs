@@ -37,7 +37,7 @@ namespace VRFPSKit.HandPoses
             if (GetComponent<Animator>() is Animator animator) animator.enabled = false;
             
             //Get index of current interactor in interactable selecting list
-            int interactorIndex = interactable.interactorsSelecting.FindIndex(selectingInteractor => selectingInteractor == interactor);
+            int interactorIndex = interactable.interactorsSelecting.FindIndex(selectingInteractor => (object)selectingInteractor == interactor);
             
             //TODO this is a temp fix for interactorIndex returning -1, need to find a better solution
             if(interactorIndex == -1) interactorIndex = 0; //Default to 0 if index not found
