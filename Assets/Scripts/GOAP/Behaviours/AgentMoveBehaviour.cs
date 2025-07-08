@@ -2,6 +2,7 @@ using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
+using VRDefender.GOAP.Targets;
 
 namespace VRDefender.GOAP.Behaviours
 {
@@ -46,16 +47,21 @@ namespace VRDefender.GOAP.Behaviours
 
         private void EventsOnTargetChanged(ITarget target, bool inRange)
         {
-            currentTarget = target;
+            currentTarget = target;            
             Debug.Log(currentTarget+" currentTarget");
+            Debug.Log(target is CoverTarget);
             lastPosition = currentTarget.Position;
-            navMeshAgent.SetDestination(target.Position);
-            animator.SetBool(WALK, value: true);
+            if (target is CoverTarget)
+            {
+                navMeshAgent.SetDestination(target.Position);
+                animator.SetBool(WALK, value: true);
+            }
+            
         }
 
         private void Update()
         {
-            if (currentTarget == null)
+            if (currentTarget == null || currentTarget is PlayerTarget)
             {
                 return;
             }

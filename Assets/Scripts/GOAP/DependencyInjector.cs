@@ -9,6 +9,7 @@ namespace VRDefender.GOAP
     public class DependencyInjector : GoapConfigInitializerBase, IGoapInjector
     {
         public AttackConfigSO attackConfigSO;
+        public GetToSafetyConfigSO getToSafetyConfigSO;
         public override void InitConfig(GoapConfig config)
         {
             config.GoapInjector = this;

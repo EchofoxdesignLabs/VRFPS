@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace VRDefender.GOAP.Goals
 {
-    public class KillPlayer : GoalBase
+    public class TakeCoverGoal : GoalBase
     {
-        
+
     }
 }
 
