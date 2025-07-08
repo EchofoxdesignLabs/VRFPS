@@ -11,14 +11,16 @@ namespace VRDefender.GOAP.Actions
     public class ShootAction : ActionBase<ShootData>, IInjectable
     {
         private AttackConfigSO attackConfigSO;
+        private static readonly int IS_CROUCHING = Animator.StringToHash("IsCrouching");
+        private static readonly int IS_STANDING = Animator.StringToHash("IsStandingUp");
         public override void Created()
         {
-            
+
         }
 
         public override void End(IMonoAgent agent, ShootData data)
         {
-            data.animator.SetBool(ShootData.SHOOT, false);
+            data.Animator.SetBool(ShootData.SHOOT, false);
         }
 
         public void Inject(DependencyInjector injector)
@@ -30,10 +32,12 @@ namespace VRDefender.GOAP.Actions
         {
             data.Timer -= context.DeltaTime;
             bool shouldAttack = data.Target != null;
-            data.animator.SetBool(ShootData.SHOOT, shouldAttack);
+            data.Animator.SetBool(ShootData.SHOOT, shouldAttack);
             if (shouldAttack)
             {
                 agent.transform.LookAt(data.Target.Position);
+                data.Animator.SetBool(IS_CROUCHING, false);
+                data.Animator.SetBool(IS_STANDING, true);
             }
             return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
         }

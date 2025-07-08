@@ -35,6 +35,10 @@ namespace VRDefender.GOAP.Factories
                 .SetTarget<WanderTarget>();
             builder.AddTargetSensor<PlayerTargetSensor>()
                 .SetTarget<PlayerTarget>();
+            builder.AddTargetSensor<CoverTargetSensor>()
+                .SetTarget<CoverTarget>();
+            builder.AddWorldSensor<HealthSensor>()
+                .SetKey<Health>();
         }
 
         private void BuildActions(GoapSetBuilder builder)
@@ -49,6 +53,11 @@ namespace VRDefender.GOAP.Factories
                 .AddEffect<PlayerHealth>(EffectType.Decrease)
                 .SetBaseCost(injector.attackConfigSO.rangedAttackCost)
                 .SetInRange(injector.attackConfigSO.sensorRadius);
+            builder.AddAction<TakeCoverAction>()
+                .SetTarget<CoverTarget>()
+                .AddEffect<Health>(EffectType.Increase)
+                .SetBaseCost(8)
+                .SetInRange(2);
         }
 
         private void BuildGoals(GoapSetBuilder builder)
@@ -57,6 +66,8 @@ namespace VRDefender.GOAP.Factories
                 .AddCondition<IsWandering>(Comparison.GreaterThanOrEqual, 1);
             builder.AddGoal<KillPlayer>()
                 .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 0);
+            builder.AddGoal<TakeCoverGoal>()
+                .AddCondition<Health>(Comparison.GreaterThanOrEqual, 80);
         }
     }
 }
