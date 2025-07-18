@@ -51,17 +51,15 @@ namespace VRDefender.GOAP.Behaviours
             Debug.Log(currentTarget+" currentTarget");
             Debug.Log(target is CoverTarget);
             lastPosition = currentTarget.Position;
-            if (target is CoverTarget)
-            {
+            
                 navMeshAgent.SetDestination(target.Position);
                 animator.SetBool(WALK, value: true);
-            }
             
         }
 
         private void Update()
         {
-            if (currentTarget == null || currentTarget is PlayerTarget)
+            if (currentTarget == null)
             {
                 return;
             }
