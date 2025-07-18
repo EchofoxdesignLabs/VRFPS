@@ -30,7 +30,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.6037736, g: 0.22866553, b: 0.13955145, a: 1}
+    m_Value: {r: 0.6039216, g: 0.37375852, b: 0.14117645, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.461
+    m_Value: 0.25
   smoothness:
     m_OverrideState: 0
     m_Value: 0.2
@@ -93,7 +93,7 @@ MonoBehaviour:
     m_Value: 0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 20
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -124,6 +124,7 @@ MonoBehaviour:
   - {fileID: -5800730857129111327}
   - {fileID: 3833457642389068931}
   - {fileID: 5768398076055167181}
+  - {fileID: 1787350038013794627}
 --- !u!114 &36880440096171983
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -144,6 +145,25 @@ MonoBehaviour:
   contribution:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &1787350038013794627
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
+  m_EditorClassIdentifier: 
+  active: 1
+  temperature:
+    m_OverrideState: 0
+    m_Value: 12
+  tint:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &2590852970542207564
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -159,7 +179,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
@@ -199,7 +219,7 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.897665, y: 0.9697349, z: 1, w: 0}
+    m_Value: {x: 0.9171551, y: 0.9783958, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -224,7 +244,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.423
+    m_Value: 0.133
   response:
     m_OverrideState: 1
     m_Value: 0.805
