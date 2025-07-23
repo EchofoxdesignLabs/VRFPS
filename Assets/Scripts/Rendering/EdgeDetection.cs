@@ -12,6 +12,11 @@ public class EdgeDetection : ScriptableRendererFeature
 
         private static readonly int OutlineThicknessProperty = Shader.PropertyToID("_OutlineThickness");
         private static readonly int OutlineColorProperty = Shader.PropertyToID("_OutlineColor");
+        private static readonly int MaxDistanceProperty = Shader.PropertyToID("_MaxThicknessDistance");
+        private static readonly int MinMultiplierProperty = Shader.PropertyToID("_MinThicknessMultiplier");
+        private static readonly int NoiseTexProperty = Shader.PropertyToID("_NoiseTexture");
+        private static readonly int NoiseScaleProperty = Shader.PropertyToID("_NoiseScale");
+        private static readonly int NoiseStrengthProperty = Shader.PropertyToID("_NoiseStrength");
 
         public EdgeDetectionPass()
         {
@@ -25,6 +30,11 @@ public class EdgeDetection : ScriptableRendererFeature
 
             material.SetFloat(OutlineThicknessProperty, settings.outlineThickness);
             material.SetColor(OutlineColorProperty, settings.outlineColor);
+            material.SetFloat(MaxDistanceProperty, settings.maxThicknessDistance);
+            material.SetFloat(MinMultiplierProperty, settings.minThicknessMultiplier);
+            material.SetTexture(NoiseTexProperty, settings.noiseTexture);
+            material.SetFloat(NoiseScaleProperty, settings.noiseScale);
+            material.SetFloat(NoiseStrengthProperty, settings.noiseStrength);
         }
 
         private class PassData
@@ -47,9 +57,24 @@ public class EdgeDetection : ScriptableRendererFeature
     [Serializable]
     public class EdgeDetectionSettings
     {
+        [Header("General Settings")]
         public RenderPassEvent renderPassEvent = RenderPassEvent.AfterRenderingTransparents;
-        [Range(0, 15)] public int outlineThickness = 3;
         public Color outlineColor = Color.black;
+
+        [Header("Thickness Settings")]
+        [Range(0, 15)] public float outlineThickness = 3f;
+        [Tooltip("Distance at which lines begin to get thinner.")]
+        [Min(0)] public float maxThicknessDistance = 50f;
+        [Tooltip("The minimum thickness multiplier for distant lines (e.g., 0.1 means 10% of original thickness).")]
+        [Range(0.0f, 1.0f)] public float minThicknessMultiplier = 0.1f;
+
+        [Header("Noise Settings")]
+        [Tooltip("A seamless noise texture (like Perlin noise) for line distortion.")]
+        public Texture2D noiseTexture;
+        [Tooltip("Controls the tiling of the noise texture.")]
+        [Min(0)] public float noiseScale = 10f;
+        [Tooltip("Controls the intensity of the noise effect (line wobble and breakup).")]
+        [Range(0.0f, 1.0f)] public float noiseStrength = 0.1f;
     }
 
     [SerializeField] private EdgeDetectionSettings settings;
