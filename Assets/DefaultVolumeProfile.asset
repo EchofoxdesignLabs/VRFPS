@@ -646,6 +646,7 @@ MonoBehaviour:
   - {fileID: 1495127433892870653}
   - {fileID: -5955015924559231578}
   - {fileID: 6466426744741837583}
+  - {fileID: 7447363835956902129}
 --- !u!114 &123857775283386431
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -835,3 +836,41 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &7447363835956902129
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935a5bd217ecdd34b98acece3976fa2a, type: 3}
+  m_Name: SketchSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  sketchTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  sketchColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  sketchTiling:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1}
+  sketchThresholds:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0.1}
+  crossHatching:
+    m_OverrideState: 1
+    m_Value: 0
+  blurAmount:
+    m_OverrideState: 1
+    m_Value: 3
+  blurStepSize:
+    m_OverrideState: 1
+    m_Value: 1
+  extendDepthSensitivity:
+    m_OverrideState: 1
+    m_Value: 0.002
