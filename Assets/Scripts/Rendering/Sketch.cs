@@ -160,7 +160,7 @@ namespace VRDefender.Rendering
                 UniversalCameraData cameraData = frameData.Get<UniversalCameraData>();
                 
                 var shadowDescriptor = cameraData.cameraTargetDescriptor;
-                shadowDescriptor.colorFormat = RenderTextureFormat.R8;
+                shadowDescriptor.colorFormat = RenderTextureFormat.ARGB32;
                 shadowDescriptor.depthBufferBits = (int)DepthBits.None;
                 // RenderGraphUtils.BlitMaterialParameters para = new(resourceData.cameraDepthTexture, resourceData.activeColorTexture, m_Material, 0);
                 // // para.sourceTexturePropertyID = Shader.PropertyToID(m_TextureName);
