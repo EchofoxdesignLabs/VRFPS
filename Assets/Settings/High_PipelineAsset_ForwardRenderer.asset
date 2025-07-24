@@ -30,12 +30,12 @@ MonoBehaviour:
   settings:
     renderPassEvent: 500
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineThickness: 4.2
+    outlineThickness: 1.5
     maxThicknessDistance: 100
-    minThicknessMultiplier: 0.32
+    minThicknessMultiplier: 0.69
     noiseTexture: {fileID: 2800000, guid: 54dcfcc5a726ec94d82711ae059d6426, type: 3}
-    noiseScale: 1
-    noiseStrength: 0.23
+    noiseScale: 2
+    noiseStrength: 0.64
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
