@@ -179,6 +179,7 @@ Shader "VRDefender/Sketch"
             float2 uv;
 
             // FIX: The depth check 'if' statement has been removed from the loop.
+            // Test
             for (int y = lower; y <= upper; y += _BlurStepSize)
             {
                 uv = i.texcoord + float2(0.0f, _BlitTexture_TexelSize.y * y);
