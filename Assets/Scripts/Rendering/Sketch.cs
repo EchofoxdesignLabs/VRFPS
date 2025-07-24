@@ -8,7 +8,6 @@ namespace VRDefender.Rendering
     using System.Reflection;
     using System.Text;
     using UnityEngine.Rendering.RenderGraphModule.Util;
-    using UnityEditor.Rendering.LookDev;
 #endif
 
     public class Sketch : ScriptableRendererFeature

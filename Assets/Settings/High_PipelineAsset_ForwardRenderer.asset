@@ -64,8 +64,7 @@ MonoBehaviour:
   - {fileID: -3664439419124595847}
   - {fileID: -6811281598151745709}
   - {fileID: 712589241644650493}
-  - {fileID: 8473226062194285342}
-  m_RendererFeatureMap: 79c3236ac34b25cd539f0265797779a1fd8ffeca23a0e3091e1bace235f29675
+  m_RendererFeatureMap: 79c3236ac34b25cd539f0265797779a1fd8ffeca23a0e309
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -104,23 +103,3 @@ MonoBehaviour:
   m_Name: Sketch
   m_EditorClassIdentifier: 
   m_Active: 1
---- !u!114 &8473226062194285342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fcefa50cc0d8c249abdf5e9f8965def, type: 3}
-  m_Name: Ben Day Bloom
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    threshold: 0.9
-    intensity: 0.75
-    scatter: 0.7
-    dotScale: 500
-    dotHardness: 0.5
-    minDotSize: 0.1
