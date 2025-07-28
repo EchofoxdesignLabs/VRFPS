@@ -162,17 +162,23 @@ namespace VRDefender.Rendering
                 var shadowDescriptor = cameraData.cameraTargetDescriptor;
                 shadowDescriptor.colorFormat = RenderTextureFormat.ARGB32;
                 shadowDescriptor.depthBufferBits = (int)DepthBits.None;
+                if (cameraData.xr.enabled)
+                {
+                    shadowDescriptor.dimension = TextureDimension.Tex2DArray;
+                    shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
+                }
                 // RenderGraphUtils.BlitMaterialParameters para = new(resourceData.cameraDepthTexture, resourceData.activeColorTexture, m_Material, 0);
-                // // para.sourceTexturePropertyID = Shader.PropertyToID(m_TextureName);
-                // renderGraph.AddBlitPass(para, passName: "Blit Selected Resource");   
+                    // // para.sourceTexturePropertyID = Shader.PropertyToID(m_TextureName);
+                    // renderGraph.AddBlitPass(para, passName: "Blit Selected Resource");   
 
-                // --- Step 1: The "Grab" Pass ---
-                // Create a texture handle that our grab pass will write into.
-                TextureHandle grabbedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_ShadowMap_Copy", false);
+                    // --- Step 1: The "Grab" Pass ---
+                    // Create a texture handle that our grab pass will write into.
+                    TextureHandle grabbedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_ShadowMap_Copy", false);
                 using (var builder = renderGraph.AddRasterRenderPass<GrabPassData>("Grab Shadow Map", out var passData))
                 {
                     passData.material = m_grabmaterial;
                     builder.SetRenderAttachment(grabbedShadowMap, 0);
+                    
                     // This pass will read the global _ScreenSpaceShadowmapTexture and output it to our 'grabbedShadowMap' handle.
                     builder.SetRenderFunc((GrabPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, (Texture)null, Vector2.one, data.material, 0));
                 }
@@ -181,6 +187,11 @@ namespace VRDefender.Rendering
                 var colorCopyDescriptor = cameraData.cameraTargetDescriptor;
                 // FIX: The camera descriptor includes depth format. We must remove it for a color texture.
                 colorCopyDescriptor.depthBufferBits = (int)DepthBits.None; 
+                if (cameraData.xr.enabled)
+                {
+                    colorCopyDescriptor.dimension = TextureDimension.Tex2DArray;
+                    colorCopyDescriptor.volumeDepth = 2;
+                }
                 TextureHandle blurredShadowMap2 = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_blurredShadowMap2", false);
                 TextureHandle copiedColor = UniversalRenderer.CreateRenderGraphTexture(renderGraph, colorCopyDescriptor, "_SketchColorCopy", false);
 
