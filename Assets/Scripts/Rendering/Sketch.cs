@@ -54,6 +54,8 @@ namespace VRDefender.Rendering
             private RTHandle sourceShadowmap;
             private RTHandle shadowmapHandle1;
             private RTHandle shadowmapHandle2;
+            // Get a static Property ID for the global texture we need to read
+            private static readonly int s_ScreenSpaceShadowmapTextureID = Shader.PropertyToID("_ScreenSpaceShadowmapTexture");
 
             public SketchRenderPass()
             {
@@ -177,6 +179,9 @@ namespace VRDefender.Rendering
                 using (var builder = renderGraph.AddRasterRenderPass<GrabPassData>("Grab Shadow Map", out var passData))
                 {
                     passData.material = m_grabmaterial;
+                    // FIX: Explicitly declare that this pass reads the global screen space shadow map.
+                    // This forces the Render Graph to wait until the shadow map is generated before running this pass.
+                    builder.UseGlobalTexture(s_ScreenSpaceShadowmapTextureID, AccessFlags.Read);
                     builder.SetRenderAttachment(grabbedShadowMap, 0);
                     
                     // This pass will read the global _ScreenSpaceShadowmapTexture and output it to our 'grabbedShadowMap' handle.
