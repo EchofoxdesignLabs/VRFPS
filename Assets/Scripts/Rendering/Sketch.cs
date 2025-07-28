@@ -80,11 +80,11 @@ namespace VRDefender.Rendering
                     var shader = Shader.Find("VRDefender/Sketch");
                     if (shader != null) m_sketchmaterial = new Material(shader);
                 }
-                if (m_grabmaterial == null)
-                {
-                    var shader = Shader.Find("Hidden/VRDefender/GrabShadows");
-                    if (shader != null) m_grabmaterial = new Material(shader);
-                }
+                // if (m_grabmaterial == null)
+                // {
+                //     var shader = Shader.Find("Hidden/VRDefender/GrabShadows");
+                //     if (shader != null) m_grabmaterial = new Material(shader);
+                // }
                 if (m_shadowMaterial == null)
                 {
                     // Load our new, VR-compatible screen space shadow shader
@@ -142,7 +142,7 @@ namespace VRDefender.Rendering
                     CreateMaterial();
                 }
                 m_Settings = VolumeManager.instance.stack.GetComponent<SketchSettings>();
-                if (m_sketchmaterial == null || m_grabmaterial == null || m_Settings == null || !m_Settings.IsActive()) return;
+                if (m_sketchmaterial == null || m_shadowMaterial == null || m_Settings == null || !m_Settings.IsActive()) return;
                 UpdateMaterialProperties();
 
                 UniversalResourceData resourceData = frameData.Get<UniversalResourceData>();
@@ -156,6 +156,10 @@ namespace VRDefender.Rendering
                     shadowDescriptor.dimension = TextureDimension.Tex2DArray;
                     shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
                 }
+                // --- FIX: Calculate and set the texel size for the blur passes ---
+                Vector4 texelSize = new Vector4(1.0f / shadowDescriptor.width, 1.0f / shadowDescriptor.height, shadowDescriptor.width, shadowDescriptor.height);
+                m_sketchmaterial.SetVector("_CustomTexelSize", texelSize);
+                // --- END FIX ---
                 var calculatedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_CalculatedShadowMap", false);
                 // --- 1. Calculate the shadow map using our custom VR shader ---
                 using (var builder = renderGraph.AddRasterRenderPass<PassData>("Calculate VR Shadows", out var passData))
