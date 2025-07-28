@@ -54,6 +54,7 @@ namespace VRDefender.Rendering
             private RTHandle sourceShadowmap;
             private RTHandle shadowmapHandle1;
             private RTHandle shadowmapHandle2;
+            private Material m_shadowMaterial;
             // Get a static Property ID for the global texture we need to read
             private static readonly int s_ScreenSpaceShadowmapTextureID = Shader.PropertyToID("_ScreenSpaceShadowmapTexture");
 
@@ -84,6 +85,12 @@ namespace VRDefender.Rendering
                     var shader = Shader.Find("Hidden/VRDefender/GrabShadows");
                     if (shader != null) m_grabmaterial = new Material(shader);
                 }
+                if (m_shadowMaterial == null)
+                {
+                    // Load our new, VR-compatible screen space shadow shader
+                    var shader = Shader.Find("Hidden/VR_ScreenSpaceShadows");
+                    if (shader != null) m_shadowMaterial = new Material(shader);
+                }
             }
 
             public void Dispose()
@@ -93,6 +100,7 @@ namespace VRDefender.Rendering
                 shadowmapHandle2?.Release();
                 CoreUtils.Destroy(m_sketchmaterial);
                 CoreUtils.Destroy(m_grabmaterial);
+                CoreUtils.Destroy(m_shadowMaterial);
             }
 
 #if UNITY_6000_0_OR_NEWER
@@ -111,6 +119,7 @@ namespace VRDefender.Rendering
             private class MainPassData { public Material material; public TextureHandle sourceColor; public TextureHandle sourceShadow; }
             private class GrabPassData { public Material material; }
             private class CopyPassData { public TextureHandle source; }
+            private class PassData { public Material material; public TextureHandle source; }
             private void UpdateMaterialProperties()
             {
                 if (m_sketchmaterial == null || m_Settings == null) return;
@@ -125,28 +134,6 @@ namespace VRDefender.Rendering
                 m_sketchmaterial.SetInt("_BlurStepSize", m_Settings.blurStepSize.value);
             }
 
-            private static void ExecuteCopyPass(RasterCommandBuffer cmd, RTHandle source)
-            {
-                Blitter.BlitTexture(cmd, source, new Vector4(1, 1, 0, 0), 0.0f, false);
-            }
-
-            private static void ExecuteMainPass(RasterCommandBuffer cmd, RTHandle source, Material material)
-            {
-                // Set Sketch effect properties.
-                
-                // material.SetTexture("_SketchTexture", settings.sketchTexture.value);
-                // material.SetColor("_SketchColor", settings.sketchColor.value);
-                // material.SetVector("_SketchTiling", settings.sketchTiling.value);
-                // material.SetVector("_SketchThresholds", settings.sketchThresholds.value);
-                // material.SetFloat("_DepthSensitivity", settings.extendDepthSensitivity.value);
-                // material.SetFloat("_CrossHatching", settings.crossHatching.value ? 1 : 0);
-
-                // material.SetInt("_KernelSize", settings.blurAmount.value);
-                // material.SetFloat("_Spread", settings.blurAmount.value / 6.0f);
-                // material.SetInt("_BlurStepSize", settings.blurStepSize.value);
-
-                Blitter.BlitTexture(cmd, source, new Vector4(1, 1, 0, 0), material, 0);
-            }
 
             public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameData)
             {
@@ -169,24 +156,30 @@ namespace VRDefender.Rendering
                     shadowDescriptor.dimension = TextureDimension.Tex2DArray;
                     shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
                 }
-                // RenderGraphUtils.BlitMaterialParameters para = new(resourceData.cameraDepthTexture, resourceData.activeColorTexture, m_Material, 0);
-                    // // para.sourceTexturePropertyID = Shader.PropertyToID(m_TextureName);
-                    // renderGraph.AddBlitPass(para, passName: "Blit Selected Resource");   
+                var calculatedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_CalculatedShadowMap", false);
+                // --- 1. Calculate the shadow map using our custom VR shader ---
+                using (var builder = renderGraph.AddRasterRenderPass<PassData>("Calculate VR Shadows", out var passData))
+                {
+                    passData.material = m_shadowMaterial;
+                    builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
+                    builder.SetRenderAttachment(calculatedShadowMap, 0);
+                    builder.SetRenderFunc((PassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, (Texture)null, Vector2.one, data.material, 0));
+                }
 
                     // --- Step 1: The "Grab" Pass ---
-                    // Create a texture handle that our grab pass will write into.
-                    TextureHandle grabbedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_ShadowMap_Copy", false);
-                using (var builder = renderGraph.AddRasterRenderPass<GrabPassData>("Grab Shadow Map", out var passData))
-                {
-                    passData.material = m_grabmaterial;
-                    // FIX: Explicitly declare that this pass reads the global screen space shadow map.
-                    // This forces the Render Graph to wait until the shadow map is generated before running this pass.
-                    builder.UseGlobalTexture(s_ScreenSpaceShadowmapTextureID, AccessFlags.Read);
-                    builder.SetRenderAttachment(grabbedShadowMap, 0);
+                // Create a texture handle that our grab pass will write into.
+                // TextureHandle grabbedShadowMap = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_ShadowMap_Copy", false);
+                // using (var builder = renderGraph.AddRasterRenderPass<GrabPassData>("Grab Shadow Map", out var passData))
+                // {
+                //     passData.material = m_grabmaterial;
+                //     // FIX: Explicitly declare that this pass reads the global screen space shadow map.
+                //     // This forces the Render Graph to wait until the shadow map is generated before running this pass.
+                //     builder.UseGlobalTexture(s_ScreenSpaceShadowmapTextureID, AccessFlags.Read);
+                //     builder.SetRenderAttachment(grabbedShadowMap, 0);
                     
-                    // This pass will read the global _ScreenSpaceShadowmapTexture and output it to our 'grabbedShadowMap' handle.
-                    builder.SetRenderFunc((GrabPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, (Texture)null, Vector2.one, data.material, 0));
-                }
+                //     // This pass will read the global _ScreenSpaceShadowmapTexture and output it to our 'grabbedShadowMap' handle.
+                //     builder.SetRenderFunc((GrabPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, (Texture)null, Vector2.one, data.material, 0));
+                // }
 
                 // --- From here, we use our 'grabbedShadowMap' handle ---
                 var colorCopyDescriptor = cameraData.cameraTargetDescriptor;
@@ -207,7 +200,7 @@ namespace VRDefender.Rendering
                     using (var builder = renderGraph.AddRasterRenderPass<BlurPassData>("Horizontal Shadow Blur", out var passData))
                     {
                         passData.material = m_sketchmaterial;
-                        passData.source = grabbedShadowMap;
+                        passData.source = calculatedShadowMap;
                         builder.UseTexture(passData.source, AccessFlags.Read);
                         // FIX: Declare that this pass needs to read the depth texture.
                         builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
@@ -220,7 +213,7 @@ namespace VRDefender.Rendering
                         passData.material = m_sketchmaterial;
                         passData.source = blurredShadowMap2;
                         builder.UseTexture(passData.source, AccessFlags.Read);
-                        builder.SetRenderAttachment(grabbedShadowMap, 0);
+                        builder.SetRenderAttachment(calculatedShadowMap, 0);
                         builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 2));
                     }
                 }
@@ -239,7 +232,7 @@ namespace VRDefender.Rendering
                 {
                     passData.material = m_sketchmaterial;
                     passData.sourceColor = copiedColor;
-                    passData.sourceShadow = grabbedShadowMap; // This is now our final, blurred shadow map
+                    passData.sourceShadow = calculatedShadowMap; // This is now our final, blurred shadow map
 
                     builder.UseTexture(passData.sourceColor, AccessFlags.Read);
                     builder.UseTexture(passData.sourceShadow, AccessFlags.Read);
