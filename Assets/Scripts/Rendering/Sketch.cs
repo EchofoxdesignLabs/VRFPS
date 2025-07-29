@@ -209,6 +209,8 @@ namespace VRDefender.Rendering
                         // FIX: Declare that this pass needs to read the depth texture.
                         builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
                         builder.SetRenderAttachment(blurredShadowMap2, 0);
+                        builder.UseAllGlobalTextures(true);
+                        builder.AllowPassCulling(false);
                         // FIX: Allow this pass to modify global shader properties.
                         builder.AllowGlobalStateModification(true);
                         builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 1));
@@ -224,6 +226,8 @@ namespace VRDefender.Rendering
                         passData.source = blurredShadowMap2;
                         builder.UseTexture(passData.source, AccessFlags.Read);
                         builder.SetRenderAttachment(calculatedShadowMap, 0);
+                        builder.UseAllGlobalTextures(true);
+                        builder.AllowPassCulling(false);
                         builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 2));
                     }
                 }
@@ -235,6 +239,8 @@ namespace VRDefender.Rendering
                     builder.UseTexture(passData.source, AccessFlags.Read); // Corrected enum
                     builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
                     builder.SetRenderAttachment(copiedColor, 0);
+                    builder.UseAllGlobalTextures(true);
+                    builder.AllowPassCulling(false);
                     builder.SetRenderFunc((CopyPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, new Vector4(1, 1, 0, 0), 0.0f, false));
                 }
                 //renderGraph.AddBlitPass(new RenderGraphUtils.BlitMaterialParameters(resourceData.activeColorTexture, copiedColor));
@@ -250,6 +256,8 @@ namespace VRDefender.Rendering
                     builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
                     builder.UseTexture(resourceData.cameraNormalsTexture, AccessFlags.Read);
                     builder.SetRenderAttachment(resourceData.activeColorTexture, 0);
+                    builder.UseAllGlobalTextures(true);
+                    builder.AllowPassCulling(false);
 
                     builder.SetRenderFunc((MainPassData data, RasterGraphContext context) =>
                     {
