@@ -151,10 +151,11 @@ namespace VRDefender.Rendering
                 var shadowDescriptor = cameraData.cameraTargetDescriptor;
                 shadowDescriptor.colorFormat = RenderTextureFormat.ARGB32;
                 shadowDescriptor.depthBufferBits = (int)DepthBits.None;
-                
-                shadowDescriptor.dimension = TextureDimension.Tex2DArray;
-                shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
-                
+                if (cameraData.xr.enabled)
+                {
+                    shadowDescriptor.dimension = TextureDimension.Tex2DArray;
+                    shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
+                }
                 // --- FIX: Calculate and set the texel size for the blur passes ---
                 Vector4 texelSize = new Vector4(1.0f / shadowDescriptor.width, 1.0f / shadowDescriptor.height, shadowDescriptor.width, shadowDescriptor.height);
                 m_sketchmaterial.SetVector("_CustomTexelSize", texelSize);
@@ -188,10 +189,11 @@ namespace VRDefender.Rendering
                 var colorCopyDescriptor = cameraData.cameraTargetDescriptor;
                 // FIX: The camera descriptor includes depth format. We must remove it for a color texture.
                 colorCopyDescriptor.depthBufferBits = (int)DepthBits.None; 
-                
-                colorCopyDescriptor.dimension = TextureDimension.Tex2DArray;
-                colorCopyDescriptor.volumeDepth = 2;
-                
+                if (cameraData.xr.enabled)
+                {
+                    colorCopyDescriptor.dimension = TextureDimension.Tex2DArray;
+                    colorCopyDescriptor.volumeDepth = 2;
+                }
                 TextureHandle blurredShadowMap2 = UniversalRenderer.CreateRenderGraphTexture(renderGraph, shadowDescriptor, "_blurredShadowMap2", false);
                 TextureHandle copiedColor = UniversalRenderer.CreateRenderGraphTexture(renderGraph, colorCopyDescriptor, "_SketchColorCopy", false);
 
