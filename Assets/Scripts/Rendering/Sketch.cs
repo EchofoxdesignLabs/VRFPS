@@ -211,11 +211,11 @@ namespace VRDefender.Rendering
                         builder.SetRenderAttachment(blurredShadowMap2, 0);
                         // FIX: Allow this pass to modify global shader properties.
                         builder.AllowGlobalStateModification(true);
-                        //builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 1));
-                        builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => {
-                        context.cmd.SetGlobalTexture("_BlitTexture", data.source);
-                        context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
-                    });
+                        builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 1));
+                    //     builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => {
+                    //     context.cmd.SetGlobalTexture("_BlitTexture", data.source);
+                    //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
+                    // });
                     }
                     // Vertical Blur (reads from blur2, writes back to grabbed)
                     using (var builder = renderGraph.AddRasterRenderPass<BlurPassData>("Vertical Shadow Blur", out var passData))
