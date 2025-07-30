@@ -8,6 +8,7 @@ namespace VRDefender.Rendering
     using System.Reflection;
     using System.Text;
     using UnityEngine.Rendering.RenderGraphModule.Util;
+    using UnityEngine.XR;
 #endif
 
     public class Sketch : ScriptableRendererFeature
@@ -57,6 +58,8 @@ namespace VRDefender.Rendering
             private Material m_shadowMaterial;
             // Get a static Property ID for the global texture we need to read
             private static readonly int s_ScreenSpaceShadowmapTextureID = Shader.PropertyToID("_ScreenSpaceShadowmapTexture");
+            // --- FIX: Get a property ID for our new, reliable texture name ---
+            private static readonly int s_MainTexID = Shader.PropertyToID("_MainTex");
 
             public SketchRenderPass()
             {
@@ -118,8 +121,14 @@ namespace VRDefender.Rendering
             private class BlurPassData { public Material material; public TextureHandle source; }
             private class MainPassData { public Material material; public TextureHandle sourceColor; public TextureHandle sourceShadow; }
             private class GrabPassData { public Material material; }
-            private class CopyPassData { public TextureHandle source; }
+            private class CopyPassData { public TextureHandle source; public Material material; }
             private class PassData { public Material material; public TextureHandle source; }
+            private class ShadowAndBlurPassData
+            {
+                public Material sketchMaterial;
+                public Material shadowMaterial;
+                public SketchSettings settings;
+            }
             private void UpdateMaterialProperties()
             {
                 if (m_sketchmaterial == null || m_Settings == null) return;
@@ -149,6 +158,7 @@ namespace VRDefender.Rendering
                 UniversalCameraData cameraData = frameData.Get<UniversalCameraData>();
                 
                 var shadowDescriptor = cameraData.cameraTargetDescriptor;
+                shadowDescriptor = XRSettings.eyeTextureDesc;
                 shadowDescriptor.colorFormat = RenderTextureFormat.ARGB32;
                 shadowDescriptor.depthBufferBits = (int)DepthBits.None;
                 if (cameraData.xr.enabled)
@@ -168,6 +178,9 @@ namespace VRDefender.Rendering
                     builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
                     builder.SetRenderAttachment(calculatedShadowMap, 0);
                     builder.SetRenderFunc((PassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, (Texture)null, Vector2.one, data.material, 0));
+                    // builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
+                    // context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3);
+                    // });
                 }
 
                     // --- Step 1: The "Grab" Pass ---
@@ -188,7 +201,8 @@ namespace VRDefender.Rendering
                 // --- From here, we use our 'grabbedShadowMap' handle ---
                 var colorCopyDescriptor = cameraData.cameraTargetDescriptor;
                 // FIX: The camera descriptor includes depth format. We must remove it for a color texture.
-                colorCopyDescriptor.depthBufferBits = (int)DepthBits.None; 
+                colorCopyDescriptor.depthBufferBits = (int)DepthBits.None;
+                
                 if (cameraData.xr.enabled)
                 {
                     colorCopyDescriptor.dimension = TextureDimension.Tex2DArray;
@@ -213,11 +227,12 @@ namespace VRDefender.Rendering
                         builder.AllowPassCulling(false);
                         // FIX: Allow this pass to modify global shader properties.
                         builder.AllowGlobalStateModification(true);
-                        builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) =>
-                        {
-                            context.cmd.SetGlobalTexture("_BlitTexture", data.source);
-                            Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 1);
-                        });
+                        builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 2));
+                        // builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) =>
+                        // {
+                        //     data.material.SetTexture(s_MainTexID, data.source);
+                        //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3);
+                        // });
                     //     builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => {
                     //     context.cmd.SetGlobalTexture("_BlitTexture", data.source);
                     //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
@@ -233,6 +248,11 @@ namespace VRDefender.Rendering
                         builder.UseAllGlobalTextures(true);
                         builder.AllowPassCulling(false);
                         builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 2));
+                        // builder.AllowGlobalStateModification(true);
+                        // builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => {
+                        //     data.material.SetTexture(s_MainTexID, data.source);
+                        //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 3, MeshTopology.Triangles, 3);
+                        // });
                     }
                 }
                 // --- Step 3: Composite the final image ---
@@ -240,12 +260,18 @@ namespace VRDefender.Rendering
                 using (var builder = renderGraph.AddRasterRenderPass<CopyPassData>("Copy Color", out var passData))
                 {
                     passData.source = resourceData.activeColorTexture;
+                    passData.material = m_sketchmaterial;
                     builder.UseTexture(passData.source, AccessFlags.Read); // Corrected enum
                     builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
                     builder.SetRenderAttachment(copiedColor, 0);
                     builder.UseAllGlobalTextures(true);
                     builder.AllowPassCulling(false);
                     builder.SetRenderFunc((CopyPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, new Vector4(1, 1, 0, 0), 0.0f, false));
+                    // builder.AllowGlobalStateModification(true);
+                    // builder.SetRenderFunc((CopyPassData data, RasterGraphContext context) => {
+                    //     data.material.SetTexture(s_MainTexID, data.source);
+                    //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3);
+                    // });
                 }
                 //renderGraph.AddBlitPass(new RenderGraphUtils.BlitMaterialParameters(resourceData.activeColorTexture, copiedColor));
                 using (var builder = renderGraph.AddRasterRenderPass<MainPassData>("Sketch Main Pass", out var passData))
@@ -262,11 +288,14 @@ namespace VRDefender.Rendering
                     builder.SetRenderAttachment(resourceData.activeColorTexture, 0);
                     builder.UseAllGlobalTextures(true);
                     builder.AllowPassCulling(false);
+                    builder.AllowGlobalStateModification(true);
 
                     builder.SetRenderFunc((MainPassData data, RasterGraphContext context) =>
                     {
+                        data.material.SetTexture("_BlitTexture", data.sourceColor);
                         data.material.SetTexture("_ShadowmapTexture", data.sourceShadow);
                         Blitter.BlitTexture(context.cmd, data.sourceColor, Vector2.one, data.material, 0);
+                        // context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
                     });
                 }
             }
