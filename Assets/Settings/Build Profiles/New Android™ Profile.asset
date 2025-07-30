@@ -32,7 +32,7 @@ MonoBehaviour:
     - line: '|   AndroidProfiler: 0'
     - line: '|   AndroidFilterTouchesWhenObscured: 0'
     - line: '|   AndroidEnableSustainedPerformanceMode: 0'
-    - line: '|   defaultScreenOrientation: 4'
+    - line: '|   defaultScreenOrientation: 3'
     - line: '|   targetDevice: 2'
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
@@ -179,6 +179,7 @@ MonoBehaviour:
     - line: '|   - {instanceID: 0}'
     - line: '|   - {instanceID: 0}'
     - line: '|   - {instanceID: 0}'
+    - line: '|   - {instanceID: 0}'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
@@ -209,9 +210,9 @@ MonoBehaviour:
     - line: '|     tvOS: 0'
     - line: '|   overrideDefaultApplicationIdentifier: 0'
     - line: '|   AndroidBundleVersionCode: 1'
-    - line: '|   AndroidMinSdkVersion: 23'
+    - line: '|   AndroidMinSdkVersion: 32'
     - line: '|   AndroidTargetSdkVersion: 0'
-    - line: '|   AndroidPreferredInstallLocation: 1'
+    - line: '|   AndroidPreferredInstallLocation: 0'
     - line: '|   aotOptions: '
     - line: '|   stripEngineCode: 1'
     - line: '|   iPhoneStrippingLevel: 0'
@@ -291,7 +292,7 @@ MonoBehaviour:
     - line: '|   clonedFromGUID: eb077fdc3e7fff14eb76138619368c4c'
     - line: '|   templatePackageId: '
     - line: '|   templateDefaultScene: Assets/Scenes/SampleScene.unity'
-    - line: '|   useCustomMainManifest: 0'
+    - line: '|   useCustomMainManifest: 1'
     - line: '|   useCustomLauncherManifest: 0'
     - line: '|   useCustomMainGradleTemplate: 0'
     - line: '|   useCustomLauncherGradleManifest: 0'
@@ -469,7 +470,7 @@ MonoBehaviour:
     - line: '|     m_GraphicsJobMode: 0'
     - line: '|   m_BuildTargetGraphicsAPIs:'
     - line: '|   - m_BuildTarget: AndroidPlayer'
-    - line: '|     m_APIs: 0b000000'
+    - line: '|     m_APIs: 15000000'
     - line: '|     m_Automatic: 0'
     - line: '|   - m_BuildTarget: iOSSupport'
     - line: '|     m_APIs: 10000000'
@@ -925,7 +926,7 @@ MonoBehaviour:
       data:
         m_Development: 1
         m_ConnectProfiler: 0
-        m_BuildWithDeepProfilingSupport: 0
+        m_BuildWithDeepProfilingSupport: 1
         m_AllowDebugging: 0
         m_WaitForManagedDebugger: 0
         m_ManagedDebuggerFixedPort: 0
