@@ -1,10 +1,15 @@
 // Shaders/Hidden/BenDayDots.shader
+// Final version with intensity, tint, and a power-based vignette control.
 
 Shader "Hidden/BenDayDots"
 {
     Properties
     {
-        _DotScale ("Dot Scale", Float) = 500
+        _Intensity ("Intensity", Float) = 1
+        _BloomTint ("Bloom Tint", Color) = (1,1,1,1)
+        _VignettePower ("Vignette Power", Range(0.1, 4)) = 1.0
+        _DotDensity ("Dot Density", Float) = 100
+        _PatternAngle ("Pattern Angle", Range(0, 90)) = 45
         _DotHardness ("Dot Hardness", Range(0.01, 2.0)) = 0.5
         _MinDotSize ("Min Dot Size", Range(0.0, 1.0)) = 0.1
     }
@@ -23,69 +28,58 @@ Shader "Hidden/BenDayDots"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
+            // Textures from the render pass
             TEXTURE2D(_BloomTexture);
             SAMPLER(sampler_BloomTexture);
 
-            float _DotScale;
+            // Uniforms from the C# script
+            float _Intensity;
+            half4 _BloomTint;
+            float _VignettePower;
+            float _DotDensity;
+            float _PatternAngle;
             float _DotHardness;
             float _MinDotSize;
 
-            // --- Voronoi Noise Functions ---
-            float2 hash(float2 p)
+            // Helper function for 2D rotation
+            float2 rotate(float2 uv, float angle_rad)
             {
-                p = float2(dot(p, float2(127.1, 311.7)), dot(p, float2(269.5, 183.3)));
-                return -1.0 + 2.0 * frac(sin(p) * 43758.5453123);
+                float s = sin(angle_rad);
+                float c = cos(angle_rad);
+                return mul(float2x2(c, -s, s, c), uv);
             }
-
-            // FIX: Rewritten voronoi function to be more explicit and avoid compiler issues.
-            float voronoi(float2 uv)
-            {
-                float2 grid_uv = floor(uv);
-                float2 frac_uv = frac(uv);
-
-                // We use squared distance to avoid using sqrt() inside the loop.
-                float min_dist_sq = 10.0;
-
-                for (int y = -1; y <= 1; y++)
-                {
-                    for (int x = -1; x <= 1; x++)
-                    {
-                        float2 neighbor_offset = float2(x, y);
-                        float2 cell_coord = grid_uv + neighbor_offset;
-                        
-                        // Get the random point for the neighboring cell.
-                        float2 point_in_cell = hash(cell_coord);
-                        
-                        // Calculate the vector from the pixel to the random point.
-                        float2 vec_to_point = neighbor_offset + point_in_cell - frac_uv;
-                        
-                        // Calculate squared distance.
-                        float dist_sq = dot(vec_to_point, vec_to_point);
-                        
-                        // Keep the minimum squared distance.
-                        min_dist_sq = min(min_dist_sq, dist_sq);
-                    }
-                }
-                // Return the actual distance.
-                return sqrt(min_dist_sq);
-            }
-            // --- End Voronoi ---
 
             float4 Frag(Varyings i) : SV_Target
             {
-                // FIX: Replaced the undeclared 'sampler_BlitTexture' with the universally available 'sampler_LinearClamp'.
+                // Sample the original scene and the generated bloom texture
                 float4 originalColor = SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, i.texcoord);
                 float3 bloomColor = SAMPLE_TEXTURE2D(_BloomTexture, sampler_BloomTexture, i.texcoord).rgb;
-                float bloomLuminance = Luminance(bloomColor);
 
-                float2 scaledUV = i.texcoord * _DotScale;
-                float voronoiDist = voronoi(scaledUV);
+                // --- 1. Apply Tint and Intensity ---
+                bloomColor *= _BloomTint.rgb;
+                float bloomLuminance = Luminance(bloomColor * _Intensity);
 
-                float dotRadius = bloomLuminance + _MinDotSize;
-                float dot = 1.0 - smoothstep(dotRadius, dotRadius + _DotHardness, voronoiDist);
-                
-                float3 benDayEffect = dot * bloomColor;
+                // --- 2. Calculate Screen-Space Vignette ---
+                // Normalize distance from screen center to a 0-1 range
+                float distFromScreenCenter = distance(i.texcoord, 0.5) * 1.41421f;
+                // Use pow() for a curved falloff controlled by Vignette Power
+                float vignette = 1.0 - pow(distFromScreenCenter, _VignettePower);
+                vignette = saturate(vignette); // Clamp between 0 and 1
 
+                // --- 3. Halftone Logic ---
+                float angle_rad = _PatternAngle * (3.14159 / 180.0);
+                float2 rotatedUV = rotate(i.texcoord, angle_rad);
+                float2 scaledUV = rotatedUV * _DotDensity;
+                float2 cellPos = frac(scaledUV);
+                float distFromCellCenter = distance(cellPos, 0.5);
+
+                // Modify the dot radius with the calculated vignette
+                float dotRadius = (bloomLuminance * vignette + _MinDotSize) * 0.7;
+                float dot = 1.0 - smoothstep(dotRadius, dotRadius + _DotHardness, distFromCellCenter);
+
+                // --- 4. Final Composite ---
+                // Apply intensity to the final dot color as well
+                float3 benDayEffect = dot * bloomColor * _Intensity;
                 return float4(originalColor.rgb + benDayEffect, 1.0);
             }
             ENDHLSL

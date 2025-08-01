@@ -161,7 +161,7 @@ namespace VRDefender.Rendering
                 shadowDescriptor = XRSettings.eyeTextureDesc;
                 shadowDescriptor.colorFormat = RenderTextureFormat.ARGB32;
                 shadowDescriptor.depthBufferBits = (int)DepthBits.None;
-                if (cameraData.xr.enabled)
+                if (cameraData.xrRendering)
                 {
                     shadowDescriptor.dimension = TextureDimension.Tex2DArray;
                     shadowDescriptor.volumeDepth = 2; // 2 slices for 2 eyes
@@ -222,21 +222,13 @@ namespace VRDefender.Rendering
                         builder.UseTexture(passData.source, AccessFlags.Read);
                         // FIX: Declare that this pass needs to read the depth texture.
                         builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
+
                         builder.SetRenderAttachment(blurredShadowMap2, 0);
                         builder.UseAllGlobalTextures(true);
                         builder.AllowPassCulling(false);
                         // FIX: Allow this pass to modify global shader properties.
                         builder.AllowGlobalStateModification(true);
                         builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => Blitter.BlitTexture(context.cmd, data.source, Vector2.one, data.material, 2));
-                        // builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) =>
-                        // {
-                        //     data.material.SetTexture(s_MainTexID, data.source);
-                        //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3);
-                        // });
-                    //     builder.SetRenderFunc((BlurPassData data, RasterGraphContext context) => {
-                    //     context.cmd.SetGlobalTexture("_BlitTexture", data.source);
-                    //     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
-                    // });
                     }
                     // Vertical Blur (reads from blur2, writes back to grabbed)
                     using (var builder = renderGraph.AddRasterRenderPass<BlurPassData>("Vertical Shadow Blur", out var passData))

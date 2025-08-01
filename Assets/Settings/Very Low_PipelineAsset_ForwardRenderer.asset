@@ -49,6 +49,29 @@ MonoBehaviour:
     noiseTexture: {fileID: 2800000, guid: 54dcfcc5a726ec94d82711ae059d6426, type: 3}
     noiseScale: 2
     noiseStrength: 0.64
+--- !u!114 &-666555364954471315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcefa50cc0d8c249abdf5e9f8965def, type: 3}
+  m_Name: Ben Day Bloom
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    threshold: 0.9
+    intensity: 2.91
+    scatter: 0.73
+    bloomTint: {r: 0.9622642, g: 0.9352269, b: 0.60096115, a: 1}
+    dotDensity: 200
+    patternAngle: 29.5
+    vignettePower: 1.13
+    dotHardness: 0.37
+    minDotSize: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +100,8 @@ MonoBehaviour:
   - {fileID: -8195766020357262962}
   - {fileID: -4460049587830212377}
   - {fileID: -8464192873647185992}
-  m_RendererFeatureMap: 8e71633e3aca428ee7b8c0bc87b81ac2b8dfdd376d25898a
+  - {fileID: -666555364954471315}
+  m_RendererFeatureMap: 8e71633e3aca428ee7b8c0bc87b81ac2b8dfdd376d25898a6d04c2586debbff6
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}

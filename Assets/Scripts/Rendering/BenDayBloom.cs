@@ -18,12 +18,20 @@ public class BenDayBloom : ScriptableRendererFeature
         [Min(0f)] public float intensity = 0.75f;
         [Tooltip("How much the bloom spreads. 0 = sharp, 1 = soft.")]
         [Range(0f, 1f)] public float scatter = 0.7f;
+        [Tooltip("A color to tint the bloom and the dots.")]
+        public Color bloomTint = Color.white; // New property
 
         [Header("Ben Day Dot Settings")]
-        [Tooltip("The scale of the dot pattern. Larger values mean smaller, more dense dots.")]
-        [Min(1.0f)] public float dotScale = 500f;
+        [Tooltip("Controls how many dots appear on screen. Higher values mean smaller, denser dots.")]
+        [Min(1.0f)] public float dotDensity = 150f; // Replaces Dot Scale
+
+        [Tooltip("The angle of the dot grid. 45 degrees is a classic look.")]
+        [Range(0f, 90f)] public float patternAngle = 45f; // New property
+        [Tooltip("Controls the power of the vignette falloff.")]
+        [Range(0.1f, 4f)] public float vignettePower = 1.0f; //
         [Tooltip("Controls the falloff of the dots. Higher values make the dots sharper.")]
         [Range(0.01f, 2.0f)] public float dotHardness = 0.5f;
+
         [Tooltip("The minimum dot size for the darkest areas of the bloom.")]
         [Range(0.0f, 1.0f)] public float minDotSize = 0.1f;
     }
@@ -55,10 +63,16 @@ public class BenDayBloom : ScriptableRendererFeature
 
         // Property IDs for shader variables
         private static readonly int BloomParamsID = Shader.PropertyToID("_Params");
-        private static readonly int DotScaleID = Shader.PropertyToID("_DotScale");
+        private static readonly int IntensityID = Shader.PropertyToID("_Intensity");
+        private static readonly int BloomTintID = Shader.PropertyToID("_BloomTint");
+        private static readonly int VignettePowerID = Shader.PropertyToID("_VignettePower");
+        private static readonly int DotDensityID = Shader.PropertyToID("_DotDensity");
+        private static readonly int PatternAngleID = Shader.PropertyToID("_PatternAngle");
         private static readonly int DotHardnessID = Shader.PropertyToID("_DotHardness");
         private static readonly int MinDotSizeID = Shader.PropertyToID("_MinDotSize");
         private static readonly int LowMipTexID = Shader.PropertyToID("_SourceTexLowMip");
+        // FIX: Add a property ID for our custom texel size
+        private static readonly int CustomTexelSizeID = Shader.PropertyToID("_CustomTexelSize");
         public BenDayBloomPass()
         {
             profilingSampler = new ProfilingSampler("BenDayBloomEffect");
@@ -66,7 +80,7 @@ public class BenDayBloom : ScriptableRendererFeature
         public void Setup(BenDayBloomSettings settings)
         {
             m_Settings = settings;
-            renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
+            renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
         }
         public void Dispose()
         {
@@ -96,9 +110,14 @@ public class BenDayBloom : ScriptableRendererFeature
             }
             if (m_BenDayMaterial != null)
             {
-                m_BenDayMaterial.SetFloat(DotScaleID, m_Settings.dotScale);
+                m_BenDayMaterial.SetFloat(IntensityID, m_Settings.intensity);
+                m_BenDayMaterial.SetColor(BloomTintID, m_Settings.bloomTint);
+                m_BenDayMaterial.SetFloat(VignettePowerID, m_Settings.vignettePower);
+                m_BenDayMaterial.SetFloat(DotDensityID, m_Settings.dotDensity);
+                m_BenDayMaterial.SetFloat(PatternAngleID, m_Settings.patternAngle);
                 m_BenDayMaterial.SetFloat(DotHardnessID, m_Settings.dotHardness);
                 m_BenDayMaterial.SetFloat(MinDotSizeID, m_Settings.minDotSize);
+
             }
         }
         private class BlitPassData { public Material material; public TextureHandle source; }
@@ -125,6 +144,9 @@ public class BenDayBloom : ScriptableRendererFeature
             prefilterDescriptor.height /= 2;
             prefilterDescriptor.graphicsFormat = GraphicsFormat.B10G11R11_UFloatPack32;
             prefilterDescriptor.depthBufferBits = (int)DepthBits.None;
+            var sourceDescriptor = cameraData.cameraTargetDescriptor;
+            Vector4 texelSize = new Vector4(1.0f / sourceDescriptor.width, 1.0f / sourceDescriptor.height, sourceDescriptor.width, sourceDescriptor.height);
+            m_BloomMaterial.SetVector(CustomTexelSizeID, texelSize);
             TextureHandle prefilterTexture = UniversalRenderer.CreateRenderGraphTexture(renderGraph, prefilterDescriptor, "_prefilter", false);
             using (var builder = renderGraph.AddRasterRenderPass<BlitPassData>("Bloom Prefilter", out var passData))
             {

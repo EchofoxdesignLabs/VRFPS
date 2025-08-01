@@ -20,12 +20,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_CustomShadowTestMat2
-  m_Shader: {fileID: -6465566751694194690, guid: 0abf6dc4b5ce43f4b952957e2918b9b5, type: 3}
+  m_Name: M_CustomShadowTestMat2 1
+  m_Shader: {fileID: -6465566751694194690, guid: d35f5d4c729450147bd08d882812f883, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _USE_SCREEN_SPACE
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -92,7 +91,7 @@ Material:
     - _HatchLineColor: {r: 0.09999997, g: 0.09999997, b: 0.19999996, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowBaseColor: {r: 0.39999998, g: 0.39999998, b: 0.6, a: 1}
-    - _ShadowColor: {r: 0.5320754, g: 0.5320754, b: 0.5320754, a: 1}
+    - _ShadowColor: {r: 4.2566032, g: 4.2566032, b: 4.2566032, a: 1}
     - _ShadowOffset: {r: 2.81, g: 0, b: 0, a: 0}
     - _ShadowPatternColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTextureTiling: {r: 0, g: 0, b: 0, a: 0}
