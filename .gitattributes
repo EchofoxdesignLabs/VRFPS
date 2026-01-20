@@ -36,5 +36,3 @@
 *.template filter=lfs diff=lfs merge=lfs -text
 *.playable filter=lfs diff=lfs merge=lfs -text
 *.shadersubgraph filter=lfs diff=lfs merge=lfs -text
-*.DISABLED filter=lfs diff=lfs merge=lfs -text
-*.vsconfig filter=lfs diff=lfs merge=lfs -text
